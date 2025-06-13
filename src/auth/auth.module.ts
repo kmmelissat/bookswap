@@ -11,10 +11,8 @@ import { UsersModule } from '../users/users.module';
     UsersModule,
     PassportModule,
     JwtModule.register({
-      secret: process.env.JWT_SECRET,
-      signOptions: {
-        expiresIn: process.env.JWT_EXPIRATION,
-      },
+      secret: 'bookswapsecret',
+      signOptions: { expiresIn: '1d' },
     }),
   ],
   controllers: [AuthController],

@@ -21,5 +21,6 @@ export class Book {
   description: string;
 
   @ManyToOne(() => User, (user) => user.books)
-  createdBy: User;
+  owner: User;
+
 }

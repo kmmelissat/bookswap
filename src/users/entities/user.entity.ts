@@ -2,11 +2,10 @@ import {
   Entity,
   Column,
   PrimaryGeneratedColumn,
-  CreateDateColumn,
-  UpdateDateColumn,
   OneToMany,
 } from 'typeorm';
 import { Book } from '../../books/entities/book.entity';
+
 @Entity('users')
 export class User {
   @PrimaryGeneratedColumn()
@@ -21,12 +20,7 @@ export class User {
   @Column()
   password: string;
 
-  @OneToMany(() => Book, (book) => book.createdBy)
+  @OneToMany(() => Book, (book) => book.owner)
   books: Book[];
 
-  @CreateDateColumn()
-  createdAt: Date;
-
-  @UpdateDateColumn()
-  updatedAt: Date;
 }
